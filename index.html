@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your 30th Birthday Adventures</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            color: white;
+            padding: 40px 20px 50px;
+        }
+        
+        .main-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+        
+        .intro-text {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 20px;
+            color: white;
+            font-size: 16px;
+            line-height: 1.7;
+            margin-top: 30px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        /* Adventure Grid */
+        .adventures-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .adventure-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .adventure-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--card-color);
+        }
+        
+        .adventure-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .adventure-number {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--card-color);
+            margin-bottom: 8px;
+        }
+        
+        .adventure-name {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        
+        .adventure-neighborhood {
+            font-size: 14px;
+            color: #718096;
+            margin-bottom: 12px;
+        }
+        
+        .adventure-highlights {
+            font-size: 13px;
+            color: #4a5568;
+            line-height: 1.5;
+        }
+        
+        /* Individual card colors */
+        .card-1 { --card-color: #FF6B6B; }
+        .card-2 { --card-color: #4ECDC4; }
+        .card-3 { --card-color: #FFE66D; }
+        .card-4 { --card-color: #95E1D3; }
+        .card-5 { --card-color: #F38181; }
+        .card-6 { --card-color: #AA96DA; }
+        .card-7 { --card-color: #FCBAD3; }
+        .card-8 { --card-color: #A8D8EA; }
+        .card-9 { --card-color: #FFD93D; }
+        .card-10 { --card-color: #6BCF7F; }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 50px 20px 30px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .main-title {
+                font-size: 32px;
+            }
+            
+            .adventures-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="main-title">30th Birthday Adventures</h1>
+            <p class="subtitle">Weekend adventures in and around Philly</p>
+            
+            <div class="intro-text">
+                For when you have some free time and want to use it, but don't want to think - here is a collection of funky little adventures that I think you'd love. You can draw a random one from your cards or choose one from this list, go by yourself or take a pal, and stick to the plan or go totally off course. There are some places here that you know, some I know and I think you'd like, and some that are totally new. Some have adventure subsidies attached to grease the wheels of whimsy.
+            </div>
+        </div>
+        
+        <!-- Adventures Grid -->
+        <div class="adventures-grid">
+            <a href="adventure-1.html" class="adventure-card card-1">
+                <div class="adventure-number">Adventure 1</div>
+                <h2 class="adventure-name">Queen Village Classic</h2>
+                <div class="adventure-neighborhood">Queen Village</div>
+                <div class="adventure-highlights">
+                    Some of the best stuff is the closest to home. Does proximity = quality?
+                </div>
+            </a>
+            
+            <a href="adventure-2.html" class="adventure-card card-2">
+                <div class="adventure-number">Adventure 2</div>
+                <h2 class="adventure-name">South Street Stroll</h2>
+                <div class="adventure-neighborhood">South Street</div>
+                <div class="adventure-highlights">
+                    A coffee stop, a park sit, and some window shopping.
+                </div>
+            </a>
+            
+            <a href="adventure-3.html" class="adventure-card card-3">
+                <div class="adventure-number">Adventure 3</div>
+                <h2 class="adventure-name">Passyunk Peruse</h2>
+                <div class="adventure-neighborhood">South Philly</div>
+                <div class="adventure-highlights">
+                    A real walk's walk. No destination, just vibes.
+                </div>
+            </a>
+            
+            <a href="adventure-4.html" class="adventure-card card-4">
+                <div class="adventure-number">Adventure 4</div>
+                <h2 class="adventure-name">West Philly Wander</h2>
+                <div class="adventure-neighborhood">West Philadelphia</div>
+                <div class="adventure-highlights">
+                    A coffee stop, a park sit, and some window shopping, but make it Westy
+                </div>
+            </a>
+            
+            <a href="adventure-5.html" class="adventure-card card-5">
+                <div class="adventure-number">Adventure 5</div>
+                <h2 class="adventure-name">Chinatown traipse</h2>
+                <div class="adventure-neighborhood">Chinatown</div>
+                <div class="adventure-highlights">
+                    Noodles & art in Chinatown, or as they call it in China, town,,
+                </div>
+            </a>
+            
+            <a href="adventure-6.html" class="adventure-card card-6">
+                <div class="adventure-number">Adventure 6</div>
+                <h2 class="adventure-name">Wissahickon Wobble</h2>
+                <div class="adventure-neighborhood">Manayunk / Roxborough</div>
+                <div class="adventure-highlights">
+                    A big hike day!
+                </div>
+            </a>
+            
+            <a href="adventure-8.html" class="adventure-card card-8">
+                <div class="adventure-number">Adventure 7</div>
+                <h2 class="adventure-name">Fishtown Frolic</h2>
+                <div class="adventure-neighborhood">Fishtown</div>
+                <div class="adventure-highlights">
+                    Nothing but the Hits of little shops!!
+                </div>
+            </a>
+            
+            <a href="adventure-9.html" class="adventure-card card-9">
+                <div class="adventure-number">Adventure 8</div>
+                <h2 class="adventure-name">Bok Bash</h2>
+                <div class="adventure-neighborhood">South Philly</div>
+                <div class="adventure-highlights">
+                    Philly's phinest one stop shop
+                </div>
+            </a>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            Made with love for your 30th birthday ♡
+        </div>
+    </div>
+</body>
+</html>

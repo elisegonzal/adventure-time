@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure 6: Wissahickon Wobble</title>
+    <style>
+        /* CHANGE THIS COLOR FOR EACH ADVENTURE */
+        :root {
+            --adventure-color: #FF6B6B; /* Coral red - change per adventure */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: #fafafa;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            box-shadow: 0 0 30px rgba(0,0,0,0.05);
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--adventure-color) 0%, var(--adventure-color) 100%);
+            color: white;
+            padding: 40px 30px 30px;
+            border-radius: 0 0 30px 30px;
+        }
+        
+        .adventure-number {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+        
+        .adventure-title {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        
+        /* Logistics Grid */
+        .logistics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .logistics-item {
+            background: rgba(255,255,255,0.15);
+            padding: 15px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .logistics-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.85;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .logistics-value {
+            font-size: 15px;
+            font-weight: 500;
+        }
+        
+        /* Content Sections */
+        .content {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--adventure-color);
+            margin-bottom: 15px;
+        }
+        
+        .vibe-text {
+            font-size: 18px;
+            font-style: italic;
+            color: #4a5568;
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 15px;
+            border-left: 4px solid var(--adventure-color);
+        }
+        
+        .route-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #2d3748;
+        }
+        
+        /* Stop Cards */
+        .stop {
+            background: #f7fafc;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .stop:hover {
+            border-color: var(--adventure-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .stop-header {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+        
+        .stop-description {
+            font-size: 15px;
+            color: #4a5568;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        
+        .stop-highlight {
+            font-size: 14px;
+            color: var(--adventure-color);
+            font-weight: 600;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 8px;
+            display: inline-block;
+        }
+        
+        /* Destination Card */
+        .destination {
+            background: linear-gradient(135deg, var(--adventure-color) 0%, var(--adventure-color) 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 40px 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .destination-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .destination-description {
+            font-size: 16px;
+            line-height: 1.7;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+        
+        .gift-card-reveal {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .gift-card-reveal .emoji {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .gift-card-reveal .amount {
+            font-size: 20px;
+            font-weight: 700;
+        }
+        
+        /* Good to Know */
+        .good-to-know {
+            background: #fffbeb;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #fbbf24;
+            font-size: 15px;
+            color: #92400e;
+            line-height: 1.7;
+        }
+        
+        /* Footer */
+        .footer {
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .back-link {
+            font-size: 12px;
+            color: #a0aec0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: var(--adventure-color);
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .header {
+                padding: 30px 20px 20px;
+            }
+            
+            .adventure-title {
+                font-size: 28px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .logistics {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="adventure-number">Adventure 6</div>
+            <h1 class="adventure-title">Wissahickon Wobble</h1>
+            
+            <div class="logistics">
+                <div class="logistics-item">
+                    <div class="logistics-label">Main Destination</div>
+                    <div class="logistics-value">Wissahickon Park</div>
+                </div>
+                <div class="logistics-item">
+                    <div class="logistics-label">Total Walking Distance</div>
+                    <div class="logistics-value">6.1 mi</div>
+                </div>
+                <div class="logistics-item">
+                    <div class="logistics-label">Best Time</div>
+                    <div class="logistics-value">Weekend</div>
+                </div>
+                <div class="logistics-item">
+                    <div class="logistics-label">What to Bring</div>
+                    <div class="logistics-value">Lots of water, snacks, an extra layer</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            <!-- The Route -->
+            <div class="section">
+                <h2 class="section-title">The route</h2>
+                <p class="route-text">
+                        The main event of this adventure day is a big hike in Wissahickon. Think you're wearing boots, you overpacked water, you have your hiking pepper spray type of thing. A true hike. Maybe you grab a coffee beforehand, maybe you grab a beer afterward. It's a very chill nature-y type of day.!
+                        You'll want to park somewhere around <a href="https://maps.app.goo.gl/mHSJWDTdNhJ3JXdW7">Eremita Cafe</a>. You can walk to the park from there, or drive from there to the nearest trailhead.
+                </p>
+            </div>
+            <!-- Destination   -->
+            <div class="destination">
+                <div class="destination-title">Your destination: Wissahickon Park</div>
+                <div class="destination-description">
+                    Take a hike! 
+            </div>
+            </div>            
+            
+            <!-- The Vibe -->
+            <div class="section">
+                <h2 class="section-title">Other stops along the way</h2>
+
+                <div class="stop">
+                    <a href="https://www.eremitacafe.com/"><div class="stop-header">Eremita Cafe</div></a>
+                    <div class="stop-description">
+                        That super cute coffee shop where we saw some really fun dogs once. You'll remember the dogs I mean when you get there.
+                        <br><br><strong>Hours</strong>
+                        <br>Monday-Saturday 8-3pm
+                        <br>Sunday 9-2pm 
+                    </div>
+                </div>
+
+                <div class="stop">
+                    <div class="stop-header">Take a hike in Wissahickon</div>
+                    <div class="stop-description">
+                        <a href="https://www.alltrails.com/trail/us/pennsylvania/wissahickon-orange-and-forbidden-drive-trail-loop">Compare this 6.1 mile loop</a> to a 6ish mile loop at your next national park??
+                    </div>
+                </div>
+                
+                <div class="stop">
+                    <div class="stop-header">Wissahickon Brewing Company</div>
+                    <div class="stop-description">
+                       The classic spot. You could plan this around a fun event if they have one coming up! <a href="https://www.wissahickonbrew.com/events/">Here's their calendar</a>.
+                    <br><br><strong>Hours</strong>
+                    <br>MON-WED: 12PM–10PM
+                    <br>THURS-FRI: 12PM–11PM
+                    <br>SAT: 11AM–11PM
+                    <br>SUN: 11AM–8PM
+                </div>
+                    <div class="gift-card-reveal">
+                      <div class="emoji">🎁</div>
+                      <div class="amount">Gift card waiting for you here</div>
+                    </div>
+                </div>
+            </div>            
+
+        <!-- Footer -->
+        <div class="footer">
+            <a href="index.html" class="back-link">← All adventures</a>
+        </div>
+    </div>
+</body>
+</html>
