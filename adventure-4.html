@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adventure 5: West Philly Wander</title>
+    <title>Adventure 4: West Philly Wander</title>
     <style>
         :root {
             --adventure-color: #95E1D3;
@@ -198,6 +198,18 @@
             font-size: 20px;
             font-weight: 700;
         }
+
+        .container img {
+          width: 100%; /* Image takes full width of container */
+          height: 100%; /* Image takes full height of container */
+          object-fit: scale-down; /* Fills container, maintaining aspect ratio, may crop */
+          /* Other values:
+             object-fit: contain; // Fits within container, maintaining aspect ratio, may leave empty space
+             object-fit: fill; // Stretches to fill, may distort aspect ratio
+             object-fit: none; // Original size, may overflow or leave space
+             object-fit: scale-down; // Compares 'none' and 'contain', uses smaller size
+          */
+        }
         
         /* Good to Know */
         .good-to-know {
@@ -298,7 +310,8 @@
                     <br>Sun  8am - 6pm
                 <div class="gift-card-reveal">
                     <div class="emoji">🎁</div>
-                    <div class="amount">Gift card waiting for you here</div>
+                    <div class="amount"><img src="green_line_card.png"></div>
+                    <div class="amount"><img src="green_line_qr.png"></div>
                 </div>
         </div>
             </div>

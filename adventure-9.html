@@ -199,6 +199,18 @@
             font-size: 20px;
             font-weight: 700;
         }
+
+        .container img {
+          width: 100%; /* Image takes full width of container */
+          height: 100%; /* Image takes full height of container */
+          object-fit: scale-down; /* Fills container, maintaining aspect ratio, may crop */
+          /* Other values:
+             object-fit: contain; // Fits within container, maintaining aspect ratio, may leave empty space
+             object-fit: fill; // Stretches to fill, may distort aspect ratio
+             object-fit: none; // Original size, may overflow or leave space
+             object-fit: scale-down; // Compares 'none' and 'contain', uses smaller size
+          */
+        }
         
         /* Good to Know */
         .good-to-know {
@@ -295,7 +307,8 @@
                 </div>
                 <div class="gift-card-reveal">
                     <div class="emoji">🎁</div>
-                    <div class="amount">Gift card waiting for you here</div>
+                    <div class="amount"><img src="machine_shop_card.png"></div>
+                    <div class="amount"><img src="machine_shop_qr.png"></div>
                 </div>
 
             </div>
